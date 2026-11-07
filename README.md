@@ -114,10 +114,10 @@ git pull                      # 1. 先同步别人的改动，避免推送被拒
 git status                    # 3. 看清楚了哪些文件被改/新增/删除
 git add .                     # 4. 全部暂存；只提交某个文件就写 git add 路径/文件名
 git commit -m "docs: 添加-复习笔记-高数-极限部分-张三"   # 5. 写清改了什么
-git push                      # 6. 推送到 GitHub
+git push                      # 6. 推送到 GitHub，推送时如果弹“Connection was reset”，就去你使用的梯子里把虚拟网卡打开（一般是“tun模式\虚拟网卡\全局路由”）
 ```
 
-**④ 首次 push 的登录方式（二选一）**
+**④ 首次 push 的登录方式（二选一，可以让ai直接帮你配置）**
 
 * **HTTPS + Personal Access Token（最省事）**：GitHub 右上头像 → `Settings` → `Developer settings` → `Personal access tokens` → `Tokens (classic)` → `Generate new token`，勾上 `repo` 权限 → 复制 token。push 时用户名填 GitHub 用户名，密码处**粘贴 token**（GitHub 早已不支持账号密码）。token 等于密码，别外传、别写进代码。
 * **SSH 密钥**：`ssh-keygen -t ed25519 -C "你的邮箱"` 一路回车 → 把 `~/.ssh/id_ed25519.pub` 的内容贴到 GitHub → `Settings` → `SSH and GPG keys` → `New SSH key` → 然后 `git remote set-url origin git@github.com:Surge-Alloy/open_WHUcs_26_4.git`。
@@ -128,7 +128,14 @@ git push                      # 6. 推送到 GitHub
 * **GitHub Desktop**：`File` → `Clone repository` → 选 `Surge-Alloy/open_WHUcs_26_4` → 本地直接用资源管理器改文件 → 左侧 `Changes` 里核对 → 左下填 Summary → `Commit to main` → 右上 `Push origin`。
 * **VS Code**：打开克隆下来的文件夹 → `Ctrl+Shift+G` 打开「源代码管理」→ 改完文件后会列在 `Changes` 里 → 点文件旁的 `+` 暂存 → 输入提交说明 → 点 `✓ Commit` → 点左下角 `Sync Changes`（或 `...` → `Push`）。
 
-### 改之前先对一下：文件该放哪
+### 还有时代红利法：AI大人
+
+* **Deepseek Harness**
+* **Claude Desktop**
+* **Chatgpt**
+* 懂得都懂
+
+### 改之前核对：文件该放哪
 
 * **按路径放**：`学期 / 课程 / 资料类型`，例如 `大一上学期/线性代数/往年真题/`；缺什么目录就新建（记得补 `.gitkeep`）。
 * **按规范命名**：`[资料类型]-[简述/作者]-[年份]`，例：`期末真题-线代-2025年.pdf`、`复习笔记-C++-指针与引用-李四.pdf`。
